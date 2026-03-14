@@ -22,23 +22,23 @@ if inspection_file and thermal_file:
 
 
         report = generate_ddr(inspection_text, thermal_text)
-        
-        pdf = FPDF()
-        pdf.add_page()
-        pdf.set_font("Arial", size=12)
-        pdf_bytes = pdf.output(dest="S").encode("latin-1")
-        st.download_button(
-            "Download DDR Report",
-            pdf_bytes,
-            file_name="DDR_Report.pdf",
-            mime="application/pdf"
-        )
-
+        with open("DDR_Report.pdf","rb") as f:
+                    st.download_button(
+                        "Download DDR Report",
+                        f,
+                        file_name="DDR_Report.pdf",
+                        mime="application/pdf"
+                    )
+                    
         st.subheader("Generated DDR Report")
         st.markdown(report)
 
         clean_report = report.replace("**","").replace("|","").replace("*","")
         clean_report = clean_report.replace("---","")
+
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Arial", size=12)
 
         for line in clean_report.split("\n"):
             pdf.multi_cell(0,10,line)
@@ -52,7 +52,7 @@ if inspection_file and thermal_file:
             pdf.add_page()
             pdf.image(img, x=10, y=20, w=180)
         
-        
+        pdf.output("DDR_Report.pdf")
 
         st.subheader("Thermal Images Preview")
 

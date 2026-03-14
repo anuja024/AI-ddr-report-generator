@@ -23,11 +23,13 @@ Thermal Analysis:
 
 Structure the report with the following sections:
 
-1. Summary of Inspection
-2. Detected Defects
-3. Severity Level (Low / Medium / High)
-4. Possible Causes
-5. Recommended Maintenance or Repair Actions
+1. Property Issue Summary
+2. Area wise Observations
+3. Probable Root Cause
+4. Severity Assessment (with reasoning)
+5. Recommended Actions
+6. Additional Notes
+7. Missing or Unclear Information (explicitly mention “Not Available” if needed)
 """
 
     response = client.chat.completions.create(
