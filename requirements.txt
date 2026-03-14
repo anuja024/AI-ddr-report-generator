@@ -4,3 +4,4 @@ pdfplumber
 pymupdf
 groq
 fpdf
+markdown
