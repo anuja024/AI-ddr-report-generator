@@ -24,14 +24,6 @@ if inspection_file and thermal_file:
 
 
         report = generate_ddr(inspection_text, thermal_text)
-        pdf_bytes = pdf.output(dest="S").encode("latin-1")
-
-        st.download_button(
-            "Download DDR Report",
-            pdf_bytes,
-            file_name="DDR_Report.pdf",
-            mime="application/pdf"
-        )
                     
         st.subheader("Generated DDR Report")
         st.markdown(report)
@@ -62,4 +54,11 @@ if inspection_file and thermal_file:
         for img in thermal_images[:5]:
             st.image(img, caption="Thermal Inspection Image", use_container_width=True)
 
-        
+        pdf_bytes = pdf.output(dest="S").encode("latin-1")
+
+        st.download_button(
+            "Download DDR Report",
+            pdf_bytes,
+            file_name="DDR_Report.pdf",
+            mime="application/pdf"
+        )
