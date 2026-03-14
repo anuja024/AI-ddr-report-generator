@@ -2,6 +2,8 @@ import streamlit as st
 from pdf_parser import extract_text, extract_images
 from ddr_generator import generate_ddr
 from fpdf import FPDF
+from markdown import markdown
+
 
 st.title("AI DDR Report Generator")
 
@@ -22,13 +24,14 @@ if inspection_file and thermal_file:
 
 
         report = generate_ddr(inspection_text, thermal_text)
-        with open("DDR_Report.pdf","rb") as f:
-                    st.download_button(
-                        "Download DDR Report",
-                        f,
-                        file_name="DDR_Report.pdf",
-                        mime="application/pdf"
-                    )
+        pdf_bytes = pdf.output(dest="S").encode("latin-1")
+
+        st.download_button(
+            "Download DDR Report",
+            pdf_bytes,
+            file_name="DDR_Report.pdf",
+            mime="application/pdf"
+        )
                     
         st.subheader("Generated DDR Report")
         st.markdown(report)
