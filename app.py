@@ -29,7 +29,7 @@ if inspection_file and thermal_file:
         st.markdown(report)
 
         clean_report = report.replace("**","").replace("|","").replace("*","")
-        clean_report = clean_report.replace("---","")
+        clean_report = clean_report.replace("---","").replace("###", "")
 
         pdf = FPDF()
         pdf.add_page()
