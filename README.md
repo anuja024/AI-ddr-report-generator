@@ -2,6 +2,9 @@
 
 This project is an AI-powered system that automatically generates a **Defect Detection Report (DDR)** from inspection and thermal imaging reports.
 
+### Live demo link
+https://ai-ddr-report-generator.streamlit.app
+
 ## Features
 
 - Upload inspection report (PDF)
@@ -30,6 +33,9 @@ This project is an AI-powered system that automatically generates a **Defect Det
 4. AI analyzes inspection findings
 5. Generate structured DDR report
 6. Export final report as PDF
+
+## Web Application
+
 
 ## Run Locally
 
