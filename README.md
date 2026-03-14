@@ -35,7 +35,7 @@ https://ai-ddr-report-generator.streamlit.app
 6. Export final report as PDF
 
 ## Web Application
-
+![Web App](screenshots/webapp.png.png)
 
 ## Run Locally
 
